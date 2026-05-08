@@ -1,0 +1,3 @@
+[libraries]
+jimfs = "com.google.jimfs:jimfs:1.3.1"
+tomlj = "org.tomlj:tomlj:1.1.1"
