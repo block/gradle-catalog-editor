@@ -1,5 +1,5 @@
 plugins {
-  id("org.jetbrains.kotlin.jvm") version "2.2.21"
+  alias(libs.plugins.kotlin)
 }
 
 dependencies {
@@ -9,4 +9,12 @@ dependencies {
   }) {
     because("Use the tomlj fatjar which bundles the matching antlr4-runtime version and avoids version skew in consumers")
   }
+
+  testImplementation(libs.assertj)
+  testImplementation(libs.junitJupiter)
+  testRuntimeOnly(libs.junitPlatformLauncher)
+}
+
+tasks.test {
+  useJUnitPlatform()
 }
