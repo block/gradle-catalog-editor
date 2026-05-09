@@ -22,9 +22,10 @@ jobs:
       - name: Validate tag matches release version
         env:
           REFNAME: ${{ github.ref_name }}
+          FILEVERSION: ${{ steps.release_version.outputs.version }}
         run: |
-          if [[ "$REFNAME" != "${{ steps.release_version.outputs.version }}" ]]; then
-            echo "Error: Tag '$REFNAME' does not match expected version '${{ steps.release_version.outputs.version }}'."
+          if [[ "$REFNAME" != "$FILEVERSION" ]]; then
+            echo "Error: Tag '$REFNAME' does not match expected version '$FILEVERSION'."
             exit 1
           fi
 
