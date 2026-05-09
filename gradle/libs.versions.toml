@@ -7,3 +7,4 @@ tomlj = "org.tomlj:tomlj:1.1.1"
 
 [plugins]
 kotlin = { id = "org.jetbrains.kotlin.jvm", version = "2.2.21" }
+mavenPublish = { id = "com.vanniktech.maven.publish", version = "0.36.0" }
