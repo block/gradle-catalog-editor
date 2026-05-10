@@ -1,6 +1,19 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
   alias(libs.plugins.kotlin)
   alias(libs.plugins.mavenPublish)
+}
+
+tasks.withType<JavaCompile>().configureEach {
+  options.release.set(libs.versions.jvmTarget.get().toInt())
+}
+
+kotlin {
+  compilerOptions {
+    jvmTarget.set(JvmTarget.fromTarget(libs.versions.jvmTarget.get()))
+    freeCompilerArgs.add("-Xjdk-release=${libs.versions.jvmTarget.get()}")
+  }
 }
 
 dependencies {
